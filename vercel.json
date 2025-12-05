@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Project/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/Project/index.html"
+    },
+    {
+      "src": "/home",
+      "dest": "/Project/home.html"
+    },
+    {
+      "src": "/how-it-works",
+      "dest": "/Project/how-it-works.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Project/$1"
+    }
+  ]
+}
+
