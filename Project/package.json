@@ -1,0 +1,20 @@
+{
+  "name": "dss-menkeu-dinamis",
+  "version": "1.0.0",
+  "description": "DSS Dinamis Penentuan Prioritas Menteri Keuangan - ANP, Fuzzy Logic, TOPSIS",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "dss",
+    "decision-support-system",
+    "anp",
+    "fuzzy-logic",
+    "topsis"
+  ],
+  "author": "Mohd Azhima",
+  "license": "MIT"
+}
+

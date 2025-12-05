@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cara Kerja – DSS Dinamis Menkeu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="home-shell">
+    <header class="home-header">
+      <div class="home-brand">
+        <div class="home-brand-text">
+          <span class="home-logo-text">DSS Menkeu Dinamis</span>
+          <span class="home-tagline">Cara Kerja Sistem</span>
+        </div>
+        <div class="brand-logos brand-logos-plain home-brand-logos-right">
+          <img src="gambar/Garuda_Pancasila.svg" alt="Lambang Garuda" class="brand-logo garuda" />
+          <img src="gambar/logo ugm2.png" alt="Logo UGM" class="brand-logo ugm" />
+        </div>
+      </div>
+    </header>
+
+    <main class="home-main">
+      <section class="card">
+        <p class="home-eyebrow">Dokumentasi Ringkas</p>
+        <h1 class="home-title">Cara Kerja Sistem Pendukung Keputusan Menkeu.</h1>
+        <p class="home-subtitle">
+          Halaman ini menjelaskan alur logika dan keterkaitan antara
+          <strong>Cluster A – Kondisi Eksternal</strong>,
+          <strong>Cluster B – Kriteria Seleksi Teknis</strong>, dan
+          <strong>hasil perangkingan kandidat</strong>, sehingga Bapak Presiden
+          dapat menafsirkan output sistem dengan lebih percaya diri.
+        </p>
+
+        <div class="how-grid">
+          <div class="how-block">
+            <h2>1. Cluster A – Kondisi Eksternal (A1–A9)</h2>
+            <p>
+              Bapak memilih kondisi terkini ekonomi global, geopolitik, dan domestik:
+              A1 (Stabilitas Moneter Global), A2 (PDB Global), A3 (Aliran Modal Asing),
+              A4 (Risiko Konflik Regional/Global), A5 (Harga Komoditas Ekspor),
+              A6 (Rantai Pasok Global), A7 (Kemiskinan &amp; Pengangguran),
+              A8 (Kepatuhan Pajak Nasional), dan A9 (Kebutuhan Infrastruktur).
+            </p>
+            <p>
+              Setiap kombinasi A1–A9 mengaktifkan hubungan ketergantungan tertentu terhadap kriteria seleksi B.
+              Misalnya:
+            </p>
+            <ul>
+              <li><strong>A1 tinggi</strong> → menambah bobot <strong>B1 – Kompetensi Makroekonomi</strong> dan <strong>B3 – Manajemen Utang Negara</strong>.</li>
+              <li><strong>A2 resesi</strong> → menambah bobot <strong>B2 – Manajemen Fiskal &amp; Sosial</strong>.</li>
+              <li><strong>A3 outflow kuat</strong> → menambah bobot <strong>B3 – Manajemen Utang Negara</strong> dan <strong>B4 – Negosiasi Keuangan Internasional</strong>.</li>
+              <li><strong>A4 risiko konflik tinggi</strong> → menambah bobot <strong>B4 – Negosiasi Keuangan Internasional</strong>.</li>
+              <li><strong>A5 harga komoditas turun drastis</strong> atau <strong>A8 kepatuhan pajak rendah</strong> → menambah bobot <strong>B5 – Optimalisasi Penerimaan &amp; Perpajakan</strong>.</li>
+              <li><strong>A6 rantai pasok global terganggu</strong> → menambah bobot <strong>B2 – Manajemen Fiskal &amp; Sosial</strong> untuk penyesuaian subsidi dan logistik.</li>
+              <li><strong>A7 di atas target</strong> → menambah bobot <strong>B2 – Fiskal &amp; Sosial</strong> dan <strong>B6 – Hubungan Fiskal Daerah</strong>.</li>
+              <li><strong>A9 kebutuhan infrastruktur tinggi</strong> → menambah bobot <strong>B3 – Manajemen Utang Negara</strong>.</li>
+            </ul>
+            <p>
+              Hasil akhirnya adalah <strong>vektor bobot dinamis W</strong> untuk seluruh kriteria B,
+              yang selalu ditampilkan di tabel <em>“Bobot Dinamis Kriteria Teknis (Cluster B)”</em>.
+            </p>
+          </div>
+
+          <div class="how-block">
+            <h2>2. Cluster B – Kriteria Seleksi &amp; Relasi ANP</h2>
+            <p>
+              Cluster B berisi kriteria teknis calon Menkeu (B1–B7). Bobot dasarnya diambil dari
+              model ANP, lalu disesuaikan secara dinamis oleh kondisi A1–A9.
+            </p>
+            <p>
+              Tabel <em>“Relasi Pengaruh Cluster A → Cluster B”</em> pada halaman utama menjelaskan:
+            </p>
+            <ul>
+              <li>kriteria B mana yang terpengaruh oleh A1–A9,</li>
+              <li>apakah bobotnya saat ini <strong>menguat</strong>, <strong>melemah</strong>, atau <strong>netral</strong>,</li>
+              <li>alasan singkat (misalnya “A2: Resesi PDB global” atau “A8: Kepatuhan pajak rendah”).</li>
+            </ul>
+            <p>
+              Dengan demikian, Bapak dapat langsung melihat mengapa fokus sistem bergeser, misalnya
+              dari utang ke stimulus fiskal, ketika skenario ekonomi berubah.
+            </p>
+          </div>
+
+          <div class="how-block">
+            <h2>3. Fuzzy Logic – Penilaian Kinerja Kandidat</h2>
+            <p>
+              Tim penilai tidak perlu memberikan angka mentah, melainkan memilih istilah linguistik untuk
+              setiap kriteria B: <strong>Sangat Buruk, Buruk, Cukup, Baik, Sangat Baik</strong>.
+            </p>
+            <p>
+              Sistem mengonversi istilah ini menjadi bilangan fuzzy (segitiga) dan kemudian menjadi
+              nilai tunggal di rentang 0–1. Nilai ini membentuk <strong>matriks kinerja S</strong>
+              yang merepresentasikan kualitas teknis masing-masing kandidat.
+            </p>
+            <p>
+              Pendekatan ini menjaga nuansa penilaian manusia, tanpa memaksa angka pasti yang semu.
+            </p>
+          </div>
+
+          <div class="how-block">
+            <h2>4. TOPSIS – Perangkingan Akhir</h2>
+            <p>
+              TOPSIS menggabungkan bobot dinamis W dan matriks kinerja S menjadi peringkat akhir kandidat:
+            </p>
+            <ol>
+              <li>Nilai kinerja tiap kriteria dinormalisasi dan dikalikan dengan bobot W.</li>
+              <li>Didefinisikan <strong>solusi ideal positif</strong> (kinerja terbaik) dan
+                  <strong>solusi ideal negatif</strong> (kinerja terburuk).</li>
+              <li>Dihitung jarak tiap kandidat ke solusi ideal positif dan negatif.</li>
+              <li>Nilai kedekatan relatif <strong>CC<sub>i</sub></strong> diperoleh dari
+                  rasio jarak terhadap solusi negatif.</li>
+            </ol>
+            <p>
+              Kandidat dengan <strong>CC<sub>i</sub> paling mendekati 1</strong> akan tampil di
+              peringkat teratas sebagai kandidat yang paling konsisten dengan prioritas nasional
+              dan kondisi saat ini.
+            </p>
+          </div>
+        </div>
+
+        <div class="how-footer-actions">
+          <a href="home.html" class="btn ghost">Kembali ke Halaman Awal</a>
+          <a href="index.html" class="btn accent">Masuk ke Halaman Penilaian</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>DSS Menkeu Dinamis – Cara Kerja Sistem</span>
+      <span class="dot-separator">•</span>
+      <span>Penjelasan singkat ANP, Fuzzy Logic, dan TOPSIS.</span>
+    </footer>
+  </div>
+</body>
+</html>
+
+

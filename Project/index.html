@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSS Menkeu Dinamis – ANP, Fuzzy, TOPSIS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-left">
+        <div class="header-brand">
+          <div class="brand-text">
+            <h1>DSS Dinamis Penentuan Prioritas Menteri Keuangan</h1>
+            <p class="subtitle">
+              ANP untuk bobot kontekstual, Fuzzy Logic untuk penilaian kinerja, dan TOPSIS untuk perangkingan akhir.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="app-header-right">
+        <div class="badge">Prototype Web - Mohd Azhima</div>
+        <div class="header-nav">
+          <a href="home.html" class="nav-chip nav-chip-ghost">Home</a>
+          <a href="how-it-works.html" class="nav-chip nav-chip-outline">Cara Kerja</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="card">
+        <h2>1. Kondisi Eksternal (Cluster A)</h2>
+        <p class="section-desc">
+          Pilih kondisi terkini ekonomi global & domestik. Sistem akan menggeser bobot kriteria teknis (Cluster B) secara otomatis.
+        </p>
+
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="a1">A1 – Stabilitas Moneter Global</label>
+            <select id="a1">
+              <option value="sedang">Sedang</option>
+              <option value="tinggi">Tinggi (Risiko Tinggi)</option>
+              <option value="rendah">Rendah</option>
+            </select>
+            <small>Jika Risiko Tinggi, bobot <strong>Kompetensi Makroekonomi (B1)</strong> dan <strong>Manajemen Utang Negara (B3)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a2">A2 – Proyeksi Pertumbuhan PDB Global</label>
+            <select id="a2">
+              <option value="stagnan">Stagnasi</option>
+              <option value="resesi">Resesi</option>
+              <option value="tumbuh">Tumbuh Kuat</option>
+            </select>
+            <small>Jika Resesi, bobot <strong>Keahlian Manajemen Fiskal &amp; Sosial (B2)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a3">A3 – Aliran Modal Asing (Capital Flow)</label>
+            <select id="a3">
+              <option value="netral">Netral</option>
+              <option value="outflow">Outflow Kuat</option>
+              <option value="inflow">Inflow Kuat</option>
+            </select>
+            <small>Jika Outflow Kuat, bobot <strong>Manajemen Utang Negara (B3)</strong> dan <strong>Negosiasi Internasional (B4)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a4">A4 – Risiko Konflik Regional/Global</label>
+            <select id="a4">
+              <option value="sedang">Sedang</option>
+              <option value="tinggi">Tinggi</option>
+              <option value="rendah">Rendah</option>
+            </select>
+            <small>Jika Tinggi, bobot <strong>Kapasitas Negosiasi Internasional (B4)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a5">A5 – Tren Harga Komoditas Utama (Ekspor)</label>
+            <select id="a5">
+              <option value="stabil">Stabil</option>
+              <option value="turun">Menurun Drastis</option>
+              <option value="naik">Meningkat Drastis</option>
+            </select>
+            <small>Jika Menurun Drastis, bobot <strong>Optimalisasi Penerimaan &amp; Perpajakan (B5)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a6">A6 – Rantai Pasok Global (Supply Chain)</label>
+            <select id="a6">
+              <option value="normal">Normal</option>
+              <option value="terganggu">Terganggu</option>
+            </select>
+            <small>Jika Terganggu, bobot <strong>Keahlian Manajemen Fiskal (B2)</strong> meningkat untuk penyesuaian subsidi dan logistik.</small>
+          </div>
+
+          <div class="field">
+            <label for="a7">A7 – Tingkat Kemiskinan &amp; Pengangguran</label>
+            <select id="a7">
+              <option value="sesuai">Sesuai Target</option>
+              <option value="diatas">Di Atas Target</option>
+            </select>
+            <small>Jika Di Atas Target, bobot <strong>Manajemen Fiskal &amp; Sosial (B2)</strong> dan <strong>Hubungan Fiskal Daerah (B6)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a8">A8 – Kepatuhan Pajak Nasional</label>
+            <select id="a8">
+              <option value="tinggi">Tinggi (Meningkat)</option>
+              <option value="rendah">Rendah (Menurun/Stagnan)</option>
+            </select>
+            <small>Jika Rendah, bobot <strong>Optimalisasi Penerimaan &amp; Perpajakan (B5)</strong> meningkat.</small>
+          </div>
+
+          <div class="field">
+            <label for="a9">A9 – Kebutuhan Infrastruktur Mendesak</label>
+            <select id="a9">
+              <option value="rendah">Rendah (Pendanaan Memadai)</option>
+              <option value="tinggi">Tinggi (Perlu Pendanaan Besar)</option>
+            </select>
+            <small>Jika Tinggi, bobot <strong>Manajemen Utang Negara (B3)</strong> meningkat.</small>
+          </div>
+        </div>
+
+        <div class="dynamic-weights">
+          <h3>Bobot Dinamis Kriteria Teknis (Cluster B)</h3>
+          <p class="section-desc">
+            Bobot awal diturunkan dari model ANP sederhana, lalu disesuaikan oleh kondisi A1–A9. Semua bobot dinormalisasi ke 1.
+          </p>
+          <div class="weights-table-wrapper">
+            <table id="weights-table">
+              <thead>
+                <tr>
+                  <th>Kode</th>
+                  <th>Kriteria Teknis (Cluster B)</th>
+                  <th>Bobot Akhir W<span class="subscript">j</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Diisi dinamis oleh JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="influence-section">
+            <h3>Relasi Pengaruh Cluster A → Cluster B</h3>
+            <p class="section-desc">
+              Tabel ini menjelaskan kriteria seleksi (Cluster B) mana yang sedang menguat atau melemah bobotnya,
+              bergantung pada kondisi eksternal (Cluster A) yang dipilih. Status akan berubah otomatis jika A1–A5 diubah.
+            </p>
+            <div class="weights-table-wrapper">
+              <table id="influence-table">
+                <thead>
+                  <tr>
+                    <th>Kode B</th>
+                    <th>Kriteria Seleksi</th>
+                    <th>Dipengaruhi oleh Cluster A</th>
+                    <th>Status Bobot Saat Ini</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Diisi dinamis oleh JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Penilaian Kinerja Kandidat (Fuzzy Logic)</h2>
+        <p class="section-desc">
+          Tambah kandidat dan berikan penilaian linguistik untuk setiap kriteria teknis.
+        </p>
+
+        <div class="candidate-controls">
+          <div class="field inline">
+            <label for="candidate-name">Nama Kandidat Baru</label>
+            <input id="candidate-name" type="text" placeholder="Misal: Kandidat A" />
+          </div>
+          <button id="add-candidate-btn" class="btn primary">Tambah Kandidat</button>
+        </div>
+
+        <div id="candidates-container" class="candidates-container">
+          <!-- Form penilaian kandidat diisi dinamis -->
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Perhitungan &amp; Peringkat Akhir (TOPSIS)</h2>
+        <p class="section-desc">
+          Sistem akan mengintegrasikan bobot ANP dan matriks penilaian Fuzzy, lalu menjalankan TOPSIS untuk menghasilkan peringkat akhir.
+        </p>
+
+        <div class="actions">
+          <button id="calculate-btn" class="btn accent">Hitung Peringkat</button>
+          <button id="reset-btn" class="btn ghost">Reset Form</button>
+        </div>
+
+        <div id="results" class="results hidden">
+          <div class="results-summary">
+            <h3>Hasil Peringkat Kandidat</h3>
+            <p id="best-candidate" class="highlight"></p>
+          </div>
+
+          <div class="weights-table-wrapper">
+            <table id="ranking-table">
+              <thead>
+                <tr>
+                  <th>Peringkat</th>
+                  <th>Nama Kandidat</th>
+                  <th>Skor Kedekatan (CC<span class="subscript">i</span>)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Diisi dinamis -->
+              </tbody>
+            </table>
+          </div>
+
+          <details class="debug-panel">
+            <summary>Detail Perhitungan (Opsional)</summary>
+            <pre id="debug-log"></pre>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>DSS Menkeu Dinamis – ANP · Fuzzy Logic · TOPSIS</span>
+      <span class="dot-separator">•</span>
+      <span>Mohd Azhima - 2025.</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
